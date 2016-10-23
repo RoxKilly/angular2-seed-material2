@@ -20,6 +20,7 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
+      {src: '@angular/material/core/theming/prebuilt/indigo-pink.css', inject: true},
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -33,6 +34,17 @@ export class ProjectConfig extends SeedConfig {
 
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
+
+    // add Material configuration to SystemJS.
+    this.addPackageBundles({
+      name:'@angular/material',
+      path:'node_modules/@angular/material/material.umd.js',
+      packageMeta:{
+        main: 'index.js',
+        defaultExtension: 'js'
+      }
+    });
+
   }
 
 }
