@@ -20,7 +20,13 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
+
+      /* Select a pre-built Material theme */
       {src: '@angular/material/core/theming/prebuilt/indigo-pink.css', inject: true},
+
+      /* HammerJS is required if the app uses certain Material components (eg: md-slider and md-slide-toggle) */
+      //{src: 'hammerjs/hammer.min.js', inject: 'libs'},
+
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
