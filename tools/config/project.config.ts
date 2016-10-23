@@ -51,6 +51,9 @@ export class ProjectConfig extends SeedConfig {
       }
     });
 
+    //packageConfigPaths cause app to break in some environments
+    delete this.SYSTEM_CONFIG_DEV.packageConfigPaths;
+
   }
 
 }
